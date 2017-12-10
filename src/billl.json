@@ -1,0 +1,23 @@
+{
+  "id": 20171207001,
+  "date": "07.12.2017",
+  "to": {
+    "sex": "Frau",
+    "fname": "Eva",
+    "lname": "Langmayr",
+    "company": "(Bits and Bobs by Eva)",
+    "street": "Obere Donaustraße",
+    "number": "15A/3/2/13",
+    "zip": "1020",
+    "town": "Wien"
+  },
+  "articles": [
+    {
+      "pos": 1,
+      "description": "Adventskalender 2017",
+      "amount": "3 Std.",
+      "singleprice": 30.00,
+      "tax": 20
+    }
+  ]
+}
