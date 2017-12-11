@@ -1,0 +1,134 @@
+.type,
+.flow {
+  position: absolute;
+}
+
+.type {
+  top: -4mm;
+  right: 0.75mm;
+  width: 62.884mm;
+}
+
+.flow {
+  bottom: -2.1mm;
+  left: 1.182mm;
+  width: 110.8mm;
+}
+
+
+.print {
+  padding-top: 30mm;
+  padding-left: 30mm;
+  padding-right: 30mm;
+  padding-bottom: 95mm;
+}
+
+h1 {
+  font-size: 14pt;
+  font-family: 'TheSansXBoldCaps', sans-serif;
+  letter-spacing: 0.15em;
+  margin-bottom: 10mm;
+  margin-top: 15mm;
+}
+
+p {
+  margin: 0;
+}
+
+p + p{
+  margin-top: 4mm;
+}
+
+
+.info {
+  font-size: 7pt;
+  text-align: left;
+  vertical-align: top;
+}
+
+.from {
+  text-align: right;
+}
+
+.articles {
+  width: 100%;
+  margin-bottom: 5mm;
+
+  td:nth-child(3),
+  td:nth-child(4),
+  td:nth-child(5) {
+    text-align: right;
+  }
+
+
+  thead {
+    font-weight: 700;
+    td {
+      padding-bottom: 4mm;
+    }
+  }
+
+  tfoot {
+    tr:first-child td {
+      padding-top: 14mm;
+
+      &:first-child {
+        padding-top: 0mm;
+      }
+    }
+    tr:last-child td {
+      padding-top: 4mm;
+    }
+    td {
+      text-align: right;
+    }
+  }
+}
+
+.logo {
+  width: 30mm;
+  margin-bottom: -3mm;
+}
+
+.signature {
+  font-size: 8pt;
+  margin-top: 5mm;
+
+  position: absolute;
+  bottom: 23mm;
+
+  table {
+    width: calc(100% + 7.5mm);
+    margin-left: -7.5mm;
+
+    td {
+      &:nth-child(1) {
+        width: 6mm;
+      }
+
+      &:nth-child(2) {
+        width: 40mm;
+      }
+    }
+
+    tr {
+      &:nth-child(1) td {
+        padding-top: 5mm;
+      }
+
+      &:last-child td {
+        padding-top: 2mm;
+      }
+    }
+  }
+
+  thead td {
+    &:nth-child(n+3) {
+      border-bottom: 1px solid black;
+    }
+  }
+
+  i {
+    font-size: 6pt;
+  }
+}

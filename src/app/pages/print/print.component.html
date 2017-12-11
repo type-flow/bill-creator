@@ -1,3 +1,123 @@
-<p>
-  menu works!
-</p>
+<img class="type" src="/assets/type.svg" />
+
+<div class="print">
+
+
+  <div class="to">
+    <p>
+      {{bill.to.sex}}<br>
+      <strong>{{bill.to.fname}} {{bill.to.lname}}</strong><br>
+      <i>{{bill.to.company}}</i><br>
+      {{bill.to.street}} {{bill.to.number}}<br>
+      {{bill.to.zip}} {{bill.to.town}}
+    </p>
+  </div>
+
+  <div class="from">
+    <p>
+      <strong>Typeflow e.U.</strong><br>
+      Sandgasse 16/3<br>
+      4020 Linz
+    </p>
+    <p>
+      <i>Steuer Nr: </i>46 450/6831<br>
+      www.<strong>typeflow.cc</strong>
+    </p>
+    <p>
+      {{bill.date}}
+    </p>
+  </div>
+
+  <p>Sehr geehrte {{bill.to.sex}} {{bill.to.lname}},</p>
+  <p>Für die Erledigung der von Ihnen beauftragten Tätigkeiten<br>
+  berechne ich Ihnen wie folgt:</p>
+
+
+  <h1>Rechnung Nr. {{bill.date}}{{bill.id}}</h1>
+
+  <table class="articles" *ngIf="bill.articles">
+    <thead>
+      <tr>
+        <td>Pos.</td>
+        <td>Bezeichnung</td>
+        <td>Menge</td>
+        <td>Einzelpreis/€</td>
+        <td>Gesamt/€</td>
+      </tr>
+    </thead>
+    <tr *ngFor="let article of bill.articles; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{article.description}}</td>
+      <td>{{article.amount}} {{article.amountType}}</td>
+      <td>{{article.singleprice}} €</td>
+      <td>{{article.price}} €</td>
+    </tr>
+    <tfoot>
+      <tr>
+        <td colspan="3" rowspan="3">
+          <p class="info">
+            (Das Rechnungsdatum  entspricht dem Leistungsdatum)
+          </p>
+        </td>
+        <td>Nettogesamt</td>
+        <td>{{totalCosts}} €</td>
+      </tr>
+      <tr>
+        <td>Ust. 20%</td>
+        <td>{{totalTax}} €</td>
+      </tr>
+      <tr>
+        <td><strong>Rechnungsbetrag</strong></td>
+        <td>{{totalCostsBrutto}} €</td>
+      </tr>
+
+    </tfoot>
+  </table>
+
+
+  <p>Vielen Dank für Ihren Auftrag!</p>
+  <p>Ich bitte um Überweisung des Rechnungsbetrages innerhalb von 14 Tagen jedoch bis spätestens <strong>21.12.2017</strong> an die unten genannte Bankverbindung.</p>
+
+  <div class="signature">
+    <table>
+      <thead>
+        <tr>
+          <td></td>
+          <td><img class="logo" src="/assets/typeflow-eu.svg"></td>
+          <td colspan="3"></td>
+        </tr>
+      </thead>
+
+      <tr>
+        <td></td>
+        <td><strong>Lukas HOLZER</strong></td>
+        <td>www.typeflow.cc</td>
+        <td><i>IBAN:</i></td>
+        <td>AT05 2032 0321 0040 6036</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>Sandgasse 16/3</td>
+        <td><strong>lukas.holzer</strong>@typeflow.cc</td>
+        <td><i>BIC:</i></td>
+        <td>ASPKAT2LXXX</td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>Lukas HOLZER</td>
+        <td colspan="3">+43&nbsp;660/48&nbsp;355&nbsp;48</td>
+      </tr>
+
+      <tr>
+        <td><i>UID:</i></td>
+        <td colspan="4">ATU72152118</td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>
+
+<img class="flow" src="/assets/flow.svg" />
