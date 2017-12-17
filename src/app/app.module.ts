@@ -18,6 +18,7 @@ import { BillFormComponent } from './components/bill-form/bill-form.component';
 import { CustomerFormComponent } from './components/customer-form/customer-form.component';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { CustomersComponent } from './pages/customers/customers.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CustomersComponent } from './pages/customers/customers.component';
     BillFormComponent,
     CustomerFormComponent,
     CustomerListComponent,
-    CustomersComponent
+    CustomersComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
