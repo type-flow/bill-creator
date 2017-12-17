@@ -1,0 +1,12 @@
+.customer-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: left;
+
+  // mat-form-field { width: 100%; padding: 0; margin:0; }
+
+  > * {
+    margin-bottom: 1em;
+  }
+}

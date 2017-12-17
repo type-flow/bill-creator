@@ -1,0 +1,58 @@
+<mat-card class="customer-form">
+  <form [formGroup]="customerForm" (ngSubmit)="newCustomer(customerForm.value)" novalidate>
+    <h1>Kunden hinzufügen</h1>
+
+    <grid-row gutter="medium">
+      <mat-form-field column medium-2>
+        <mat-select placeholder="Geschlecht" [formControl]="customerForm.controls['sex']" required>
+          <mat-option value="male">Herr</mat-option>
+          <mat-option value="female">Frau</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field column medium-5>
+        <input matInput [formControl]="customerForm.controls['fname']" placeholder="Vorname" required>
+      </mat-form-field>
+
+      <mat-form-field column medium-5>
+        <input matInput [formControl]="customerForm.controls['lname']" placeholder="Nachname" required>
+      </mat-form-field>
+    </grid-row>
+
+    <grid-row gutter="medium">
+      <mat-form-field column medium-6>
+        <input matInput [formControl]="customerForm.controls['company']" placeholder="Firma">
+      </mat-form-field>
+      <mat-form-field column medium-6>
+        <input matInput [formControl]="customerForm.controls['country']" placeholder="Land">
+      </mat-form-field>
+    </grid-row>
+
+    <grid-row gutter="medium">
+      <mat-form-field column medium-8>
+        <input matInput [formControl]="customerForm.controls['street']" placeholder="Straße">
+      </mat-form-field>
+
+      <mat-form-field column small-6 medium-2>
+        <input type="number" matInput [formControl]="customerForm.controls['number']" placeholder="Nr">
+      </mat-form-field>
+
+      <mat-form-field column small-6 medium-2>
+        <input type="number" matInput [formControl]="customerForm.controls['door']" placeholder="Türe">
+      </mat-form-field>
+    </grid-row>
+
+    <grid-row gutter="medium">
+      <mat-form-field column medium-6>
+        <input type="number" matInput [formControl]="customerForm.controls['zip']" placeholder="PLZ">
+      </mat-form-field>
+
+      <mat-form-field column medium-6>
+        <input matInput [formControl]="customerForm.controls['street']" placeholder="Stadt">
+      </mat-form-field>
+    </grid-row>
+
+    <button type="submit" color="primary" mat-raised-button>Neuen Kunden hinzufügen</button>
+
+  </form>
+</mat-card>
