@@ -1,0 +1,5 @@
+<div class="customer-list" *ngFor="let customer of customers | async">
+  <mat-card class="customer">
+    <strong>{{ customer.lname }}</strong> {{ customer.fname }}
+  </mat-card>
+</div>
