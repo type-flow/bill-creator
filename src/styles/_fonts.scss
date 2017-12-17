@@ -1,0 +1,43 @@
+$theSansPath: '/assets/fonts/TheSans/' !default;
+
+@font-face {
+  font-family: 'TheSansXBoldCaps';
+  src: url('#{$theSansPath}TheSans-XBoldCaps.woff') format('woff');
+  font-style: normal;
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'TheSans';
+  src: url('#{$theSansPath}TheSans-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'TheSans';
+  src: url('#{$theSansPath}TheSans-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'TheSans';
+  src: url('#{$theSansPath}TheSans-Light.woff') format('woff');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'TheSans';
+  src: url('#{$theSansPath}TheSans-LightIta.woff') format('woff');
+  font-style: italic;
+  font-weight: 300;
+}
+
+// @font-face {
+//     font-family: 'Neutra Text';
+//     font-style: normal;
+//     font-weight: 400;
+//     src: url(./NeutraText-Book.woff) format('woff');
+// }
