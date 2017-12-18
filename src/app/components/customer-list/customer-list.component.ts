@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { CustomerService } from '../../services/customer.service';
 import { ICustomer } from '../../interfaces/customer.interface';
+
 
 @Component({
   selector: 'customer-list',
@@ -17,5 +18,4 @@ export class CustomerListComponent implements OnInit {
   ngOnInit() {
     this.customers = this.customerService.getCustomers();
   }
-
 }

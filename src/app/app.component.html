@@ -1,37 +1,22 @@
-<main>
-<mat-sidenav-container class="app">
-  <mat-sidenav>Start</mat-sidenav>
-  <mat-sidenav-content>Main</mat-sidenav-content>
-</mat-sidenav-container>
+<mat-drawer-container class="app" autosize>
+  <mat-drawer #drawer class="app-drawer" mode="side">
+    <navigation></navigation>
+  </mat-drawer>
 
-  <customer-form></customer-form>
-  <customer-list></customer-list>
+  <main class="main">
+    <mat-toolbar class="app-toolbar" color="primary">
 
-  <!-- <bill-form></bill-form> -->
+      <span>Rechnungsverwaltung Typeflow e.U.</span>
+      <button type="button" class="hamburger" mat-button (click)="drawer.toggle()">
+        <i class="material-icons">menu</i>
+      </button>
 
-</main>
+    </mat-toolbar>
 
-
-
-<md-sidenav-container class="app">
-
-    <md-sidenav #focusSidenav>
-      <app-navigation></app-navigation>
-    </md-sidenav>
-
-    <md-toolbar color="primary">
-      <div class="navigation__bar">
-        <button class="navigation__hamburger" md-button>
-          <app-icon iconType="menu" size="large" (click)="focusSidenav.open()"></app-icon>
-        </button>
-      </div>
-    </md-toolbar>
-
-    <main class="neatural">
-
+    <section class="app-content">
       <router-outlet></router-outlet>
+    </section>
 
-    </main>
+  </main>
 
-</md-sidenav-container>
-
+</mat-drawer-container>

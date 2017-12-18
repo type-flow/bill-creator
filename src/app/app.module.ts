@@ -9,6 +9,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment';
 
 import { MaterialModule } from './material/material.module';
+import { AppRoutingModule }     from './app-routing.module';
+
 
 import { CustomerService } from './services/customer.service';
 
@@ -19,6 +21,10 @@ import { CustomerFormComponent } from './components/customer-form/customer-form.
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { BillsComponent } from './pages/bills/bills.component';
+import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
+import { CustomerListItemComponent } from './components/customer-list-item/customer-list-item.component';
 
 
 @NgModule({
@@ -29,7 +35,14 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     CustomerFormComponent,
     CustomerListComponent,
     CustomersComponent,
-    NavigationComponent
+    NavigationComponent,
+    DashboardComponent,
+    BillsComponent,
+    DialogConfirmComponent,
+    CustomerListItemComponent
+  ],
+  entryComponents: [
+    DialogConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +52,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     AngularFireAuthModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     CustomerService

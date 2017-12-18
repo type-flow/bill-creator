@@ -1,0 +1,8 @@
+ <mat-card class="customer">
+    <div class="customer__name">
+      <strong>{{ customer.lname }}</strong> {{ customer.fname }}
+    </div>
+    <div class="customer__delete">
+        <i class="material-icons" (click)="delete(customer.id)">delete</i>
+    </div>
+  </mat-card>

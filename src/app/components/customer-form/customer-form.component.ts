@@ -31,8 +31,8 @@ export class CustomerFormComponent implements OnInit {
 
   newCustomer(customer: ICustomer) {
     // TODO: validation if customer exists should go here
-    this.customerService.checkIfExists(customer);
-    // this.customerService.add(customer);
+    // this.customerService.checkIfExists(customer);
+    this.customerService.add(customer);
   }
 
 
