@@ -1,8 +1,10 @@
- <mat-card class="customer">
-    <div class="customer__name">
-      <strong>{{ customer.lname }}</strong> {{ customer.fname }}
-    </div>
-    <div class="customer__delete">
-        <i class="material-icons" (click)="delete(customer.id)">delete</i>
-    </div>
-  </mat-card>
+<mat-card class="customer">
+  <div class="customer__name">
+    {{gender}} <strong>{{ customer.lname }}</strong> {{ customer.fname }}
+    <div class="customer__company" *ngIf="customer.company">{{customer.company}}</div>
+  </div>
+  <div class="customer__delete">
+    <i class="material-icons" (click)="update(customer.id)">edit</i>
+    <i class="material-icons" (click)="delete(customer.id)">delete</i>
+  </div>
+</mat-card>

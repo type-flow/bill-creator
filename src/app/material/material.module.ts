@@ -4,11 +4,13 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 
@@ -22,7 +24,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatSidenavModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatMomentDateModule
   ],
   exports: [
     MatFormFieldModule,
@@ -33,7 +37,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatSidenavModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule
   ],
+  providers: [
+    MatMomentDateModule
+  ]
 })
 export class MaterialModule { }

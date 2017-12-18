@@ -11,10 +11,20 @@ import { IDialogConfirm } from '../../interfaces/dialog-confirm.interface';
   templateUrl: './customer-list-item.component.html',
   styleUrls: ['./customer-list-item.component.scss']
 })
-export class CustomerListItemComponent {
+export class CustomerListItemComponent implements OnInit {
+  private gender: string;
 
   @Input('customer') customer: ICustomer;
   constructor(private customerService: CustomerService, public dialog: MatDialog) { }
+
+  ngOnInit() {
+    if ( this.customer.sex ) {
+      switch ( this.customer.sex ) {
+        case 'male': this.gender = 'Herr'; break;
+        case 'female': this.gender = 'Frau'; break;
+      }
+    }
+  }
 
   delete(): void {
     let dialogRef = this.dialog.open(DialogConfirmComponent, {

@@ -34,7 +34,8 @@ export class CustomerService {
     this.collection.add(customer).then((docRef) => {
       this.collection.doc(docRef.id).update({
         id: docRef.id,
-        createdAt: new Date()
+        createdAt: new Date(),
+        updatedAt: new Date()
       });
     }).catch((err) => {
       console.log(err);

@@ -1,8 +1,10 @@
+import { ICustomer } from './customer.interface';
+
 export interface IBill {
   id: number;
   no?: string;
   date: string;
-  // to: IBillCustomer;
+  to: ICustomer;
   articles: Array<IBillArticles>;
 }
 

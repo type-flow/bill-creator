@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-print',
@@ -35,9 +34,9 @@ export class PrintComponent implements OnInit {
     }]
   };
 
-  constructor(private dataService: DataService) {
+  constructor() {
     this.calculateCosts();
-    this.dataService.buildObject();
+    // this.dataService.buildObject();
     // pdfMake.vfs = pdfFonts.pdfMake.vfs;
     // var dd = {
     //   pageSize: 'A4',

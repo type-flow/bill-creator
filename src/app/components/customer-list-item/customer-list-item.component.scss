@@ -1,7 +1,13 @@
 @import '../../../styles/_variables.scss';
-
 .customer {
-    margin-top: $spacer;
-    display: flex;
-    justify-content: space-between;
+  margin-top: $spacer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.customer__delete i {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
 }

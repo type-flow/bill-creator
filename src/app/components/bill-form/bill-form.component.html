@@ -1,14 +1,37 @@
-<div class="bill-form">
+<mat-card class="bill-form">
+
+  <form [formGroup]="billForm" (ngSubmit)="newBill(billForm.value)" novalidate>
+    <h1>Rechnung erstellen</h1>
+
+    <grid-row gutter="medium">
+      <mat-form-field column medium-6>
+        <input type="text" [formControl]="billForm.controls['to']" placeholder="Kunden auswählen" aria-label="Kunden" matInput [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayCustomer">
+          <mat-option *ngFor="let customer of filteredCustomers" [value]="customer">
+            {{ customer.name }}
+          </mat-option>
+        </mat-autocomplete>
+       <!-- <mat-error *ngIf="!billForm.controls.customer.valid">
+          Bitte geben Sie einen Kunden an!
+        </mat-error>-->
+      </mat-form-field>
+
+      <mat-form-field column medium-6>
+        <input matInput [formControl]="billForm.controls['date']" [matDatepicker]="picker" placeholder="Datum auswählen">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <h3 column medium-12>Positionen</h3>
+      <!-- <mat-form-field column medium-5>
+        {# <input matInput [formControl]="billForm.controls['article'][description]" placeholder="Beschreibung" required> #}
+      </mat-form-field> -->
 
 
+    </grid-row>
 
-<!--
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field> -->
+    <button type="submit" color="primary" [disabled]="!billForm.valid" mat-raised-button>Rechnung erstellen</button>
 
-  <button mat-button>bestätigen</button>
+  </form>
 
-</div>
+</mat-card>
