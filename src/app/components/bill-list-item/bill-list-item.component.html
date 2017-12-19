@@ -1,0 +1,10 @@
+<mat-card class="bill">
+  <div class="bill-no">
+    {{bill.date}} - {{bill.no}}
+    <div class="bill__company" *ngIf="bill.to.name">{{bill.to.name}}</div>
+  </div>
+  <div class="bill__delete">
+    <i class="material-icons" (click)="print(bill.id)">print</i>
+    <i class="material-icons" (click)="delete(bill.id)">delete</i>
+  </div>
+</mat-card>

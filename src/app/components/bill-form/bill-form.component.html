@@ -5,15 +5,15 @@
 
     <grid-row gutter="medium">
       <mat-form-field column medium-6>
-        <input type="text" [formControl]="billForm.controls['to']" placeholder="Kunden auswählen" aria-label="Kunden" matInput [matAutocomplete]="auto">
+        <input type="text" [formControl]="billForm.controls['to']" placeholder="Kunden auswählen" aria-label="Kunden" matInput [matAutocomplete]="auto" required>
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayCustomer">
           <mat-option *ngFor="let customer of filteredCustomers" [value]="customer">
             {{ customer.name }}
           </mat-option>
         </mat-autocomplete>
-       <!-- <mat-error *ngIf="!billForm.controls.customer.valid">
+        <mat-error *ngIf="!billForm.controls.to.valid">
           Bitte geben Sie einen Kunden an!
-        </mat-error>-->
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field column medium-6>
@@ -23,9 +23,71 @@
       </mat-form-field>
 
       <h3 column medium-12>Positionen</h3>
-      <!-- <mat-form-field column medium-5>
-        {# <input matInput [formControl]="billForm.controls['article'][description]" placeholder="Beschreibung" required> #}
-      </mat-form-field> -->
+
+      <grid-column class="bill-form-articles" formArrayName="articles" medium-12>
+        <section>
+          <grid-row gutter="medium" *ngFor="let article of billForm.controls.articles.controls; let i=index">
+            <grid-column medium-12>
+              <mat-toolbar color="primary">
+                <header class="article__header">
+                  <span>Artikel No {{i + 1}}</span>
+                  <i class="material-icons" (click)="removeArticle(i)">close</i>
+                </header>
+              </mat-toolbar>
+            </grid-column>
+
+            <grid-column medium-12>
+              <grid-row gutter="medium" [formGroupName]="i" class="article">
+
+                <mat-form-field column medium-5>
+                  <input matInput placeholder="Beschreibung" formControlName="description" required>
+                  <mat-error *ngIf="!billForm.controls.articles.controls[i].controls.description.valid">
+                    Bitte geben Sie eine Beschreibung ein!
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field column medium-2>
+                  <input matInput placeholder="Menge" type="number" formControlName="amount" required>
+                  <mat-error *ngIf="!billForm.controls.articles.controls[i].controls.amount.valid">
+                    Bitte geben Sie eine Stückzahl an!
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field column medium-2>
+                  <input matInput placeholder="Preis/{{billForm.controls.articles.controls[i].get('amountType').value}}" type="number" formControlName="price" required>
+                  <span matPrefix>€&nbsp;</span>
+                  <span matSuffix>.00</span>
+                </mat-form-field>
+
+
+                <mat-form-field column medium-1>
+                  <mat-select [formControl]="billForm.controls.articles.controls[i].controls.amountType">
+                    <mat-option value="h" selected>h</mat-option>
+                    <mat-option value="Stk.">Stk.</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field column medium-2>
+                  <input matInput placeholder="Ust." type="number" formControlName="tax">
+                  <span matSuffix>%</span>
+                </mat-form-field>
+
+              </grid-row>
+            </grid-column>
+
+          </grid-row>
+
+          <grid-row gutter="medium">
+
+            <grid-column>
+              <span (click)="addArticle()" class="articles__addArticle">
+                <i class="material-icons">add_circle_outline</i> Add another Article
+              </span>
+            </grid-column>
+
+          </grid-row>
+        </section>
+      </grid-column>
 
 
     </grid-row>

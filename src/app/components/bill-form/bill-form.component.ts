@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormArray, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
 
-import { CustomerService } from '../../services/customer.service'
+import { CustomerService } from '../../services/customer.service';
+import { BillService } from '../../services/bill.service';
 
 import { IBill } from '../../interfaces/bill.interface';
 import { ICustomer } from '../../interfaces/customer.interface';
@@ -19,9 +20,12 @@ export class BillFormComponent implements OnInit {
   public billForm: FormGroup;
   public filteredCustomers: ICustomer[];
 
-  constructor(private fb: FormBuilder, private customerService: CustomerService) {
+  constructor(
+    private fb: FormBuilder,
+    private customerSvc: CustomerService,
+    private billSvc: BillService) {
 
-    this.customerService.getCustomers()
+    this.customerSvc.getCustomers()
       .subscribe(customers => {
         customers.map(customer => {
           customer.name = customer.company ? customer.company : `${customer.fname} ${customer.lname}`;
@@ -35,14 +39,14 @@ export class BillFormComponent implements OnInit {
 
     this.billForm = this.fb.group({
       no: '',
-      to: undefined,
+      to: ['', Validators.required],
       date: new Date(),
       articles: this.fb.array([
         this.initArticles(),
       ])
     });
 
-    this.billForm.get('to').valueChanges.subscribe(value =>  {
+    this.billForm.get('to').valueChanges.subscribe(value => {
       if (value.length == 0) {
         this.filteredCustomers = this.customers;
         return;
@@ -62,29 +66,32 @@ export class BillFormComponent implements OnInit {
     return customer.name;
   }
 
-  private initArticles(): FormGroup  {
+  private initArticles(): FormGroup {
     return this.fb.group({
       description: ['', Validators.required],
-      price: ['', Validators.required]
+      price: ['', Validators.required],
+      amount: ['', Validators.required],
+      amountType: 'h',
+      tax: 20
     });
   }
 
-  // public addArticle() {
-  //       // add Article to the list
-  //       const control = <FormArray>this.myForm.controls['addresses'];
-  //       control.push(this.initAddress());
-  //   }
+  public addArticle(): void {
+    // add Article to the list
+    const control = <FormArray>this.billForm.controls['articles'];
+    control.push(this.initArticles());
+  }
 
-  // public removeArticle(index: number) {
-  //     // remove address from the list
-  //     const control = <FormArray>this.myForm.controls['addresses'];
-  //     control.removeAt(index);
-  // }
+  public removeArticle(index: number): void {
+    // remove address from the list
+    const control = <FormArray>this.billForm.controls['articles'];
+    control.removeAt(index);
+  }
 
 
 
   newBill(bill: IBill) {
-    console.log(bill);
+    this.billSvc.add(bill);
   }
 
 }

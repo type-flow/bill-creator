@@ -13,6 +13,8 @@ import { AppRoutingModule }     from './app-routing.module';
 
 
 import { CustomerService } from './services/customer.service';
+import { BillService } from './services/bill.service';
+import { PdfService } from './services/pdf.service';
 
 import { AppComponent } from './app.component';
 import { PrintComponent } from './pages/print/print.component';
@@ -25,6 +27,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BillsComponent } from './pages/bills/bills.component';
 import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
 import { CustomerListItemComponent } from './components/customer-list-item/customer-list-item.component';
+import { BillListComponent } from './components/bill-list/bill-list.component';
+import { BillListItemComponent } from './components/bill-list-item/bill-list-item.component';
 
 
 @NgModule({
@@ -39,7 +43,9 @@ import { CustomerListItemComponent } from './components/customer-list-item/custo
     DashboardComponent,
     BillsComponent,
     DialogConfirmComponent,
-    CustomerListItemComponent
+    CustomerListItemComponent,
+    BillListComponent,
+    BillListItemComponent
   ],
   entryComponents: [
     DialogConfirmComponent
@@ -56,7 +62,9 @@ import { CustomerListItemComponent } from './components/customer-list-item/custo
     AppRoutingModule
   ],
   providers: [
-    CustomerService
+    CustomerService,
+    BillService,
+    PdfService
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

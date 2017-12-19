@@ -1,11 +1,11 @@
 import { ICustomer } from './customer.interface';
 
 export interface IBill {
-  id: number;
+  id?: string;
   no?: string;
   date: string;
   to: ICustomer;
-  articles: Array<IBillArticles>;
+  articles: IBillArticles[];
 }
 
 export interface IBillCompany {
@@ -30,14 +30,12 @@ interface Mail {
   domain: string
 }
 
-
-
 export interface IBillArticles {
     description: string;
     amount: number;
     amountType: string;
-    singleprice: number;
+    singleprice?: number;
     price: number;
-    priceTaxed: number;
+    priceTaxed?: number;
     tax: number;
 }
