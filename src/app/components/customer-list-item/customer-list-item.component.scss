@@ -1,9 +1,9 @@
 @import '_variables';
 
 .customer {
-  margin-top: $spacer;
   display: flex;
   justify-content: space-between;
+    margin-bottom: $spacer;
 }
 
 .customer__delete i {
