@@ -3,7 +3,7 @@
 .customer {
   display: flex;
   justify-content: space-between;
-    margin-bottom: $spacer;
+  margin-bottom: $spacer/2;
 }
 
 .customer__delete i {
