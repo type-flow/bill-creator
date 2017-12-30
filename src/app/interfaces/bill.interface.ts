@@ -3,7 +3,7 @@ import { ICustomer } from './customer.interface';
 export interface IBill {
   id?: string;
   no?: string;
-  date: string;
+  date: Date;
   to: ICustomer;
   articles: IBillArticles[];
 }
@@ -18,14 +18,14 @@ export interface IBillCompany {
   zip: number;
   town: string;
   phone: string;
-  mail: string | Mail;
+  mail: string | IMail;
   web: string;
   uid: string;
   iban: string;
   bic: string
 }
 
-interface Mail {
+interface IMail {
   name: string;
   domain: string
 }
